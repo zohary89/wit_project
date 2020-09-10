@@ -13,7 +13,7 @@ Add files from the working directory to the staging area folder. FILE_PATH is th
 
 #### Commit:
 *Usage: python <WIT_FILE_PATH> commit < MESSAGE>*\
-Create new folder in 'images' and save all the files from the staging area, create new commit id file with the same name as the folder.\
+Create a "save point"- create a new folder in 'images' and save all the files we add to the staging area, create new commit id file with the same name as the folder.\
 MESSAGE- The message you would like to add to the commit.
 
 #### Status:
@@ -22,7 +22,7 @@ Get the status of your wit repository: Changes to be commited, Changes not stage
   
 #### Checkout:
 *Usage: python <WIT_FILE_PATH> checkout <BRANCH_NAME/ COMMIT_ID>*\
-Copy all of the files from a chosen BRANCH_NAME/ COMMIT_ID to the working directory. HEAD will point to that commit id after that command.
+Copy all of the files from a chosen BRANCH_NAME/ COMMIT_ID to the working directory. HEAD will point to that commit id after the checkout command.
   
 #### Graph:
 *Usage: python <WIT_FILE_PATH> graph*\
