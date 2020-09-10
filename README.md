@@ -5,7 +5,7 @@ Later you can use the various commands to manipulate your project files.
 
 #### Init:
 *Usage: python <WIT_FILE_PATH> init*\
-Initialize 'wit' directory in the current working directory, with that folders inside: 'images', 'staging_area', and the file: 'activated.txt'
+Initialize 'wit' directory in the current working directory, with that folders inside: 'images', 'staging_area', and the file: 'activated.txt'.
 
 #### Add:
 *Usage: python <WIT_FILE_PATH> add <FILE_PATH>*\
@@ -30,7 +30,7 @@ Create and show a graph of all the commits id-\
 starting from 'HEAD' and continue with arrow towards the commit id that marked as his parent, from it to the parent above and so on.
 
 #### Branch:
-*Usage: python <WIT_FILE_PATH> branch <BRANCH_NAME>*
+*Usage: python <WIT_FILE_PATH> branch <BRANCH_NAME>*\
 Create a new branch, that will point to the last commit id we work on.\
 As long as the HEAD is on this branch and this branch is activated (by 'checkout'), the commit id of that branch will change in every commit.
 
