@@ -261,8 +261,7 @@ def get_untracked_files(wit_dst, staging_area, staging_area_items):
     return difference_dirs + difference_files
 
 
-def get_status_info(wit_dst):
-    cur_commit_id = get_current_commit_id(wit_dst)
+def get_status_info(wit_dst, cur_commit_id):
     staging_area = os.path.join(wit_dst, STAGING_AREA)
     staging_area_items = get_all_children_relative_to_path(staging_area)
     if cur_commit_id is not None:
@@ -277,8 +276,10 @@ def get_status_info(wit_dst):
 
 
 def status(wit_dst):
-    changes_to_be_committed, changes_not_staged_for_commit, untracked_files = get_status_info(wit_dst)
-    print("Changes to be committed:")
+    cur_commit_id = get_current_commit_id(wit_dst)
+    print(f"Current commit id: {os.path.basename(cur_commit_id)}")
+    changes_to_be_committed, changes_not_staged_for_commit, untracked_files = get_status_info(wit_dst, cur_commit_id)
+    print("\nChanges to be committed:")
     if changes_to_be_committed is None:
         print("There is no commit id yet.")
     else:
@@ -321,7 +322,8 @@ def checkout(wit_dst):
     elif not check_if_commit_is_exist(wit_dst, commit_id):
         log_and_print("Invalid commit id/ branch")
         return
-    changes_to_be_committed, changes_not_staged_for_commit, _ = get_status_info(wit_dst)
+    cur_commit_id = get_current_commit_id(wit_dst)
+    changes_to_be_committed, changes_not_staged_for_commit, _ = get_status_info(wit_dst, cur_commit_id)
     if check_status(changes_to_be_committed, changes_not_staged_for_commit):
         commit_id_path = os.path.join(wit_dst, IMAGES, commit_id)
         staging_area = os.path.join(wit_dst, STAGING_AREA)
